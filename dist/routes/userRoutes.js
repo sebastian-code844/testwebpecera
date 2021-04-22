@@ -29,6 +29,14 @@ class UserRoutes {
         /*this.router.get('/home',(req:Request,res:Response)=> {
             res.send('Bienvenido!!!')});*/
         this.router.get('/home', userController_1.default.home);
+        /* Paso 10 ejemplo03 */
+        //CRUD
+        this.router.get('/list', userController_1.default.list);
+        this.router.get('/find/:id', userController_1.default.find);
+        this.router.post('/add', userController_1.default.addUser);
+        this.router.put('/update/:id', userController_1.default.update);
+        this.router.delete('/delete/:id', userController_1.default.delete);
+        // FIN CRUD
     }
 }
 //Exportamos el enrutador con 
