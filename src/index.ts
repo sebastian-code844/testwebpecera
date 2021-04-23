@@ -17,6 +17,8 @@ class Server{
 	config():void{
 		//Configuraciones
 		this.app.set('port',process.env.PORT || 3000);
+
+		
         this.app.set('views',path.join(__dirname,'views')); //indicamos que views esta en dist y no en el modulo principal
 		this.app.engine('.hbs',exphbs({ //nombre del motor, configuracion
 			defaultLayout:'main',
