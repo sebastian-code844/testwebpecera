@@ -1,14 +1,4 @@
 import {createPool} from 'mysql2/promise';
-/*
-export async function connect(){
-	const connection = await createPool({
-		host: 'localhost',
-		user: 'root',
-        password:'',
-		database: 'estacionamiento',
-		connectionLimit: 10
-	});
-*/
 	export async function connect(){
 		const connection = await createPool({
 			host: 'us-cdbr-east-03.cleardb.com',

@@ -14,11 +14,11 @@ const promise_1 = require("mysql2/promise");
 function connect() {
     return __awaiter(this, void 0, void 0, function* () {
         const connection = yield promise_1.createPool({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'estacionamiento',
-            connectionLimit: 10
+            host: 'us-cdbr-east-03.cleardb.com',
+			user: 'b0e0fd43ed8818',
+			password:'2b1f9d39',
+			database: 'heroku_4505cc56058eb11',
+			connectionLimit: 10
         });
         return connection; //devolvemos el manejador de conexion
     });
