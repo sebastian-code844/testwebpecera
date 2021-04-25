@@ -20,17 +20,15 @@ class UserRoutes{
         this.router.get('/signin',userController.signin); 
         this.router.post('/signin',userController.login); //Paso 15
 
-        //registro - Paso 18
+        //registro
 		this.router.get('/signup',userController.signup);
 		this.router.post('/signup',userController.addUser);
 
         //Home del usuario
 		/*this.router.get('/home',(req:Request,res:Response)=> {
-            res.send('Bienvenido!!!')});*/
-        
+            res.send('Bienvenido!!!')});*/        
         this.router.get('/home',userController.home);
 
-        /* Paso 10 ejemplo03 */
         //CRUD
         this.router.get('/list',userController.list);
         this.router.get('/find/:id',userController.find);
@@ -38,10 +36,12 @@ class UserRoutes{
         this.router.put('/update/:id',userController.update);
         this.router.delete('/delete/:id',userController.delete);
         // FIN CRUD
+
+        this.router.get('/control',userController.control);
+        this.router.post('/procesar',userController.procesar);
 	}
 }
 
 //Exportamos el enrutador con 
-
 const userRoutes = new UserRoutes();
 export default userRoutes.router;

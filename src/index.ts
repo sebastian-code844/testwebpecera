@@ -16,9 +16,7 @@ class Server{
 	}
 	config():void{
 		//Configuraciones
-		this.app.set('port',process.env.PORT || 3000);
-
-		
+		this.app.set('port',process.env.PORT || 3000);		
         this.app.set('views',path.join(__dirname,'views')); //indicamos que views esta en dist y no en el modulo principal
 		this.app.engine('.hbs',exphbs({ //nombre del motor, configuracion
 			defaultLayout:'main',
@@ -37,10 +35,11 @@ class Server{
 		//this.app.use(express.static('public'));
 
 		// Archivos Publicos
-		this.app.use(express.static(path.join(__dirname, 'public'))); //metodo usado para indicar donde esta la carpeta public
+		this.app.use(express.static(path.join(__dirname, 'public'))); //metodo usado para indicar donde esta la carpeta public		
 
-		
+		// Variables globales
 	}
+	// Rutas de la app
 	routes():void{
         this.app.use(indexRoutes);
 		this.app.use("/user",userRoutes); //user sera un objeto existene en la app.	
@@ -56,4 +55,3 @@ class Server{
 
 const server = new Server();
 server.start(); //Ejecutamos el metodo start en inica el server
-

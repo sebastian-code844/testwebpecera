@@ -22,14 +22,13 @@ class UserRoutes {
         }); //El msj ahora esta en userController*/ //Paso 9
         this.router.get('/signin', userController_1.default.signin);
         this.router.post('/signin', userController_1.default.login); //Paso 15
-        //registro - Paso 18
+        //registro
         this.router.get('/signup', userController_1.default.signup);
         this.router.post('/signup', userController_1.default.addUser);
         //Home del usuario
         /*this.router.get('/home',(req:Request,res:Response)=> {
             res.send('Bienvenido!!!')});*/
         this.router.get('/home', userController_1.default.home);
-        /* Paso 10 ejemplo03 */
         //CRUD
         this.router.get('/list', userController_1.default.list);
         this.router.get('/find/:id', userController_1.default.find);
@@ -37,6 +36,8 @@ class UserRoutes {
         this.router.put('/update/:id', userController_1.default.update);
         this.router.delete('/delete/:id', userController_1.default.delete);
         // FIN CRUD
+        this.router.get('/control', userController_1.default.control);
+        this.router.post('/procesar', userController_1.default.procesar);
     }
 }
 //Exportamos el enrutador con 

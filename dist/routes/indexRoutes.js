@@ -7,10 +7,7 @@ class IndexRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', (req, res) => {
-            //res.render("Hola Mundo");
-            res.render("partials/principal");
-        });
+        this.router.get('/', (req, res) => res.render("partials/principal"));
     }
 }
 //Exportamos el enrutador con 
