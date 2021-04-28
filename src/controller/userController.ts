@@ -8,14 +8,14 @@ class UserController{
         res.render("partials/signinForm");
 	}
     public async login(req:Request,res:Response){
-		const { nombre, password } = req.body; // hacemos detrucsturing y obtenemos el ID. Es decir, obtenemos una parte de un objeto JS.
-        const result = await userModel.buscarUsuario(nombre);
-        console.log(nombre);
+		const { usuario, password } = req.body; // hacemos detrucsturing y obtenemos el ID. Es decir, obtenemos una parte de un objeto JS.
+        const result = await userModel.buscarUsuario(usuario);
+        console.log(usuario);
         console.log(password);
         console.log(result);
         if (!result)
             res.send({ "Usuario no registrado Recibido": req.body });
-        if (result.Usuario == nombre && result.Password == password){
+        if (result.Usuario == usuario && result.Password == password){
 			res.redirect("./home");
 			return;
 		}

@@ -20,14 +20,14 @@ class UserController {
     }
     login(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { nombre, password } = req.body; // hacemos detrucsturing y obtenemos el ID. Es decir, obtenemos una parte de un objeto JS.
-            const result = yield userModel_1.default.buscarNombre(nombre);
-            console.log(nombre);
+            const { usuario, password } = req.body; // hacemos detrucsturing y obtenemos el ID. Es decir, obtenemos una parte de un objeto JS.
+            const result = yield userModel_1.default.buscarUsuario(usuario);
+            console.log(usuario);
             console.log(password);
             console.log(result);
             if (!result)
                 res.send({ "Usuario no registrado Recibido": req.body });
-            if (result.nombre == nombre && result.password == password) {
+            if (result.Usuario == usuario && result.Password == password) {
                 res.redirect("./home");
                 return;
             }
@@ -70,7 +70,7 @@ class UserController {
             delete usuario.repassword;
             console.log(req.body);
             //res.send('Usuario agregado!!!');
-            const busqueda = yield userModel_1.default.buscarNombre(usuario.nombre);
+            const busqueda = yield userModel_1.default.buscarUsuario(usuario.Usuario);
             if (!busqueda) {
                 const result = yield userModel_1.default.crear(usuario);
                 return res.json({ message: 'User saved!!' });

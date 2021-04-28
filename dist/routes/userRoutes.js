@@ -37,7 +37,7 @@ class UserRoutes {
         this.router.delete('/delete/:id', userController_1.default.delete);
         // FIN CRUD
         this.router.get('/control', userController_1.default.control);
-        this.router.get('/procesar', userController_1.default.procesar);
+        this.router.post('/procesar', userController_1.default.procesar);
     }
 }
 //Exportamos el enrutador con 
