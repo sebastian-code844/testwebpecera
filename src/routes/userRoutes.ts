@@ -39,6 +39,8 @@ class UserRoutes{
 
         this.router.get('/control',userController.control);
         this.router.post('/procesar',userController.procesar);
+
+        
 	}
 }
 

@@ -9,13 +9,13 @@ class UserController{
 	}
     public async login(req:Request,res:Response){
 		const { nombre, password } = req.body; // hacemos detrucsturing y obtenemos el ID. Es decir, obtenemos una parte de un objeto JS.
-        const result = await userModel.buscarNombre(nombre);
+        const result = await userModel.buscarUsuario(nombre);
         console.log(nombre);
         console.log(password);
         console.log(result);
         if (!result)
             res.send({ "Usuario no registrado Recibido": req.body });
-        if (result.nombre == nombre && result.password == password){
+        if (result.Usuario == nombre && result.Password == password){
 			res.redirect("./home");
 			return;
 		}
@@ -57,7 +57,7 @@ class UserController{
         delete usuario.repassword;
         console.log(req.body);
         //res.send('Usuario agregado!!!');
-        const busqueda = await userModel.buscarNombre(usuario.nombre);
+        const busqueda = await userModel.buscarUsuario(usuario.Usuario);
         if (!busqueda) {
             const result = await userModel.crear(usuario);
             return res.json({ message: 'User saved!!' });

@@ -43,4 +43,4 @@ class UserRoutes {
 //Exportamos el enrutador con 
 const userRoutes = new UserRoutes();
 exports.default = userRoutes.router;
-//# sourceMappingURL=userRoutes.js.map
+//# sourceMappingURL=productRoutes.js.map
