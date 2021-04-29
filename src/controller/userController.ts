@@ -14,12 +14,14 @@ class UserController{
         console.log(password);
         console.log(result);
         if (!result)
-            res.send({ "Usuario no registrado Recibido": req.body });
+            //res.send({ "Usuario no registrado Recibido": req.body });
+            res.redirect("signin"); //  faltaria mandar mensaje por session
         if (result.Usuario == usuario && result.Password == password){
 			res.redirect("./home");
 			return;
 		}
-        res.send({ "Usuario y/o contraseña incorrectos": req.body });
+        //res.send({ "Usuario y/o contraseña incorrectos": req.body });
+        res.redirect("signin"); //  faltaria mandar mensaje por session
 	}
 
     //registro

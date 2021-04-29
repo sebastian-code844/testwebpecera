@@ -10,6 +10,9 @@ const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const express_handlebars_1 = __importDefault(require("express-handlebars"));
 const path_1 = __importDefault(require("path"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const productsRoutes_1 = __importDefault(require("./routes/productsRoutes")); // importo rutas del objeto
+const clientRoutes_1 = __importDefault(require("./routes/clientRoutes")); // importo rutas del objeto
+const proveedorRoutes_1 = __importDefault(require("./routes/proveedorRoutes")); // importo rutas del objeto
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -42,6 +45,9 @@ class Server {
     routes() {
         this.app.use(indexRoutes_1.default);
         this.app.use("/user", userRoutes_1.default); //user sera un objeto existene en la app.	
+        this.app.use("/products", productsRoutes_1.default); // agrego objeto products
+        this.app.use("/client", clientRoutes_1.default); // agrego objeto products
+        this.app.use("/proveedor", proveedorRoutes_1.default); // agrego objeto products
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

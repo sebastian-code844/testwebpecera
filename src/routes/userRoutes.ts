@@ -10,8 +10,8 @@ class UserRoutes{
         //se asocian rutas con el metodo de una clase existente:
 
 		this.router.get('/',(req:Request,res:Response)=> {
-            res.send('Main!!!');
-            //res.render("partials/principal");               
+            //res.send('Main!!!');
+            res.render("partials/home"); /// cuando entre a /user renderiza a user/home                  
         });
         /*this.router.get('/signin',(req:Request,res:Response)=> {
             res.send('Sign In!!!');

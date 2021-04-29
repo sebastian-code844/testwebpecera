@@ -1,0 +1,75 @@
+<table border="1">
+    <theader>
+        <th>Id</th>
+        <th>TipoDocumento</th>
+        <th>NumeroDocumento</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Direccion</th>
+        <th>Localidad</th>
+        <th>Provincia</th>
+        <th>CodigoPostal</th>
+        <th>Accion</th>
+    </theader>
+    {{#each clients}}
+    <tr>
+        <td>{{Id}}</td>
+        <td>{{TipoDocumento}}</td>
+        <td>{{NumeroDocumento}}</td>
+        <td>{{Nombre}}</td>
+        <td>{{Apellido}}</td>
+        <td>{{Email}}</td>
+        <td>{{Direccion}}</td>
+        <td>{{Localidad}}</td>
+        <td>{{Provincia}}</td>
+        <td>{{CodigoPostal}}</td>       
+        <td><a class="btn btn-success" href="/client/update/{{id}}">Modificar</a><a class="btn btn-danger" href="/client/delete/{{id}}">Eliminar</a></td>
+    </tr>
+    {{else}}
+    <tr>
+        <td colspan="10">No hay mas filas</td>
+    </tr>
+    {{/each}}
+</table>
+<br>
+<form action="" method="post">
+    <table border="1">
+        <theader>
+            <th>Accion</th>
+            <th>Id</th>
+            <th>TipoDocumento</th>
+            <th>NumeroDocumento</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Direccion</th>
+            <th>Localidad</th>
+            <th>Provincia</th>
+            <th>CodigoPostal</th>
+        </theader>
+        {{#each clients}}
+        <tr>
+            <td>
+                <input type="checkbox" name="id" value="{{id}}">
+            </td>
+            <td>{{Id}}</td>
+            <td>{{TipoDocumento}}</td>
+            <td>{{NumeroDocumento}}</td>
+            <td>{{Nombre}}</td>
+            <td>{{Apellido}}</td>
+            <td>{{Email}}</td>
+            <td>{{Direccion}}</td>
+            <td>{{Localidad}}</td>
+            <td>{{Provincia}}</td>
+            <td>{{CodigoPostal}}</td> 
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="11">No hay mas filas</td>
+        </tr>
+        {{/each}}
+    </table>
+    <button class="btn btn-success">Enviar</button>
+</form>
+<button class="btn btn-success" onclick="window.location.href='http://localhost:3000/user/home';">Panel de Control</button>

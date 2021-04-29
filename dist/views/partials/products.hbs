@@ -1,0 +1,86 @@
+<script type="text/javascript">
+function muestra(id)
+{
+	if( document.getElementById(id).style.display == "none" )
+		document.getElementById(id).style.display = "";
+}
+function oculta(id)
+{
+	if( document.getElementById(id).style.display == "" )
+		document.getElementById(id).style.display = "none";
+}
+</script>
+<div>
+    <div style="display:inline;">Cargar Producto</div>
+    <div onClick="muestra('carga')" style="cursor:pointer;display: inline;">[+]</div>
+    <div onClick="oculta('carga')" style="cursor:pointer;display:inline;">[-]</div>
+</div>
+<div id="carga" style="display: none">
+    <form action="" enctype="multipart/form-data" method="POST" onkeypress="return anular(event)" >
+        <article id="formudatos">
+            <div class="casilla2" style="display: inline-block;">
+                <span class="texto5">Codigo Producto</span><br>
+                <input class="largo" id="CodigoProducto" type="text" name="CodigoProducto" maxlength="50" placeholder="Codigo de producto" required/><br>
+                <span class="texto5">Descripcion</span><br>
+                <input class="largo" id="Descripcion" type="text" name="Descripcion" maxlength="50" placeholder="Descripcion" required/><br>               
+                <span class="texto5">Stock Minimo</span><br>
+                <input class="largo" id="StockMinimo" type="text" name="StockMinimo" maxlength="50" placeholder="Stock minmo" required/>
+            </div>
+        </article>
+        <div id="guardar"><br><br>
+            <input class="btn btn-success" type="submit" value="Cargar" name="cargar">
+        </div>       
+    </form>
+</div>
+<table border="1">
+    <theader>
+        <th>Id</th>
+        <th>Codigo Producto</th>
+        <th>Descripcion</th>
+        <th>Stock Minimo</th>
+        <th>Accion</th>
+    </theader>
+    {{#each products}}
+    <tr>
+        <td>{{Id}}</td>
+        <td>{{CodigoProducto}}</td>
+        <td>{{Descripcion}}</td>        
+        <td>{{StockMinimo}}</td>
+        <td><a class="btn btn-success" href="/products/update/{{id}}">Modificar</a><a class="btn btn-danger" href="/products/delete/{{id}}">Eliminar</a></td>
+    </tr>
+    {{else}}
+    <tr>
+        <td colspan="5">No hay mas filas</td>
+    </tr>
+    {{/each}}
+</table>
+<br>
+<form action="../user/procesar" method="post">
+    <table border="1">
+        <theader>
+            <th>Seleccione</th>
+            <th>Id</th>
+            <th>Codigo Producto</th>
+            <th>Descripcion</th>
+            <th>Stock Minimo</th>
+            <th>Accion</th>   
+        </theader>
+        {{#each products}}
+        <tr>
+            <td>
+                <input type="checkbox" name="usuario" value="{{idProducto}}">
+            </td>
+            <td>{{Id}}</td>
+            <td>{{CodigoProducto}}</td>
+            <td>{{Descripcion}}</td>        
+            <td>{{StockMinimo}}</td>
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="5">No hay mas filas</td>
+        </tr>
+        {{/each}}
+    </table>
+    <button class="btn btn-success">Enviar</button>
+</form>
+<button class="btn btn-success" onclick="window.location.href='http://localhost:3000/user/home';">Panel de Control</button>

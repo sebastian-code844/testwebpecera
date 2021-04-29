@@ -5,6 +5,9 @@ import indexRoutes from './routes/indexRoutes';
 import exphbs from "express-handlebars";
 import path from "path";
 import userRoutes from './routes/userRoutes';
+import productsRoutes from './routes/productsRoutes'; // importo rutas del objeto
+import clientRoutes from './routes/clientRoutes'; // importo rutas del objeto
+import proveedorRoutes from './routes/proveedorRoutes'; // importo rutas del objeto
 
 class Server{
 	public app:Application;
@@ -43,6 +46,9 @@ class Server{
 	routes():void{
         this.app.use(indexRoutes);
 		this.app.use("/user",userRoutes); //user sera un objeto existene en la app.	
+		this.app.use("/products",productsRoutes); // agrego objeto products
+		this.app.use("/client",clientRoutes); // agrego objeto products
+		this.app.use("/proveedor",proveedorRoutes); // agrego objeto products
 		
     }
 	start():void{

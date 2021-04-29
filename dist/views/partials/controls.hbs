@@ -1,3 +1,45 @@
+<script type="text/javascript">
+    function muestra(id) {
+        if (document.getElementById(id).style.display == "none")
+            document.getElementById(id).style.display = "";
+    }
+    function oculta(id) {
+        if (document.getElementById(id).style.display == "")
+            document.getElementById(id).style.display = "none";
+    }
+</script>
+<div>
+    <div style="display:inline;">Cargar Producto</div>
+    <div onClick="muestra('carga')" style="cursor:pointer;display: inline;">[+]</div>
+    <div onClick="oculta('carga')" style="cursor:pointer;display:inline;">[-]</div>
+</div>
+<div id="carga" style="display: none">
+    <form action="" method="POST" onkeypress="return anular(event)">
+        <article>
+            <div style="display: inline-block;">
+                <br>
+                <span>Cargar Usuario</span>
+                <input type="text" name="Usuario" maxlength="50" placeholder="Usuario" required />
+                <span>Password</span>
+                <input type="password" name="r" maxlength="50" placeholder="Password" required />
+                <span>Legajo</span>
+                <input type="text" name="Legajo" maxlength="50" placeholder="Legajo" required />
+                <br>
+                <br>
+                <span>Nombre</span>
+                <input type="text" name="Nombre" maxlength="50" placeholder="Nombre" required />
+                <span>Apellido</span>
+                <input type="text" name="Apellido" maxlength="50" placeholder="Apellido" required />                
+                <span>Email</span>
+                <input type="email" name="Email" maxlength="50" placeholder="Email" required />
+            </div>
+        </article>
+        <div id="guardar"><br><br>
+            <input class="btn btn-success" type="submit" value="Cargar" name="cargar">
+        </div>
+    </form>
+</div>
+
 <table border="1">
     <theader>
         <th>Id</th>
