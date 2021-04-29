@@ -51,7 +51,7 @@ class UserController{
         const usuario = await userModel.buscarId(id);
         if (usuario)
             return res.json(usuario);
-        res.status(404).json({ text: "User doesn't exists" });
+        res.status(404).json({ text: "User doesn't exists" });        
 	}
 
 	public async addUser(req:Request,res:Response){
