@@ -10,6 +10,8 @@ const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const express_handlebars_1 = __importDefault(require("express-handlebars"));
 const path_1 = __importDefault(require("path"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const express_session_1 = __importDefault(require("express-session")); // manejo de sesion
+const connect_flash_1 = __importDefault(require("connect-flash")); // para mensajes de sesion
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -34,9 +36,21 @@ class Server {
         this.app.use(express_1.default.json()); //habilitamos el intercambio de objetos json entre aplicaciones
         this.app.use(express_1.default.urlencoded({ extended: true })); //Paso 21 - habilitamos para recibir datos a traves de formularios html.
         //this.app.use(express.static('public'));
+        // Paso 3 - inicio de sesion
+        this.app.use(express_session_1.default({
+            secret: 'secret_supersecret',
+            resave: false,
+            saveUninitialized: false //indica que no se guarde la sesion hasta que se inicialice
+        }));
+        this.app.use(connect_flash_1.default()); // Paso 11 para mensajes 
         // Archivos Publicos
-        this.app.use(express_1.default.static(path_1.default.join(__dirname, 'public'))); //metodo usado para indicar donde esta la carpeta public		
+        this.app.use(express_1.default.static(path_1.default.join(__dirname, 'public'))); //metodo usado para indicar donde esta la carpeta public	
         // Variables globales
+        // Paso 11 - mensajes de sesion error es una variable que definiremos en flash y despues se la pasaremos a la variable global error para que este disponible en todas las vistas
+        this.app.use((req, res, next) => {
+            this.app.locals.error_session = req.flash('error_session');
+            next();
+        });
     }
     // Rutas de la app
     routes() {

@@ -19,19 +19,19 @@
             <div style="display: inline-block;">
                 <br>
                 <span>Cargar Usuario</span>
-                <input type="text" name="Usuario" maxlength="50" placeholder="Usuario" required />
+                <input type="text" name="usuario" maxlength="50" placeholder="Usuario" required />
                 <span>Password</span>
-                <input type="password" name="r" maxlength="50" placeholder="Password" required />
+                <input type="password" name="password" maxlength="50" placeholder="Password" required />
                 <span>Legajo</span>
-                <input type="text" name="Legajo" maxlength="50" placeholder="Legajo" required />
+                <input type="text" name="legajo" maxlength="50" placeholder="Legajo" required />
                 <br>
                 <br>
                 <span>Nombre</span>
-                <input type="text" name="Nombre" maxlength="50" placeholder="Nombre" required />
+                <input type="text" name="nombre" maxlength="50" placeholder="Nombre" required />
                 <span>Apellido</span>
-                <input type="text" name="Apellido" maxlength="50" placeholder="Apellido" required />                
+                <input type="text" name="apellido" maxlength="50" placeholder="Apellido" required />                
                 <span>Email</span>
-                <input type="email" name="Email" maxlength="50" placeholder="Email" required />
+                <input type="email" name="email" maxlength="50" placeholder="Email" required />
             </div>
         </article>
         <div id="guardar"><br><br>
@@ -52,7 +52,7 @@
         <td>{{Id}}</td>
         <td>{{Usuario}}</td>
         <td>{{Password}}</td>
-        <td><a class="btn btn-success" href="/user/update/{{id}}">Modificar</a><a class="btn btn-danger" href="/user/delete/{{id}}">Eliminar</a></td>
+        <td><a class="btn btn-danger" href="/user/delete/{{Id}}">Eliminar</a></td>
     </tr>
     {{else}}
     <tr>
@@ -72,7 +72,7 @@
         {{#each users}}
         <tr>
             <td>
-                <input type="checkbox" name="usuario" value="{{id}}">
+                <input type="checkbox" name="usuario" value="{{Id}}">
             </td>
             <td>{{Id}}</td>
             <td>{{Usuario}}</td>

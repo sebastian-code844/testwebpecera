@@ -1,0 +1,21 @@
+<!-- Paso 21 -->
+{{home.Usuario}}<BR>
+<table border="1">
+    <theader>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Password</th>
+    </theader>
+    {{#each usuarios}}
+    <tr>
+        <td>{{Id}}</td>
+        <td>{{Usuario}}</td>
+        <td>{{Password}}</td>
+    </tr>
+    {{else}}
+    <tr>
+        <td colspan="3">No hay mas filas</td>
+    </tr>
+    {{/each}}
+</table>
+<button class="btn btn-success" onclick="window.location.href='control';">Panel de usuarios</button>

@@ -12,7 +12,7 @@ class UserModel {
 			user: 'b0e0fd43ed8818',
 			password:'2b1f9d39',
 			database: 'heroku_4505cc56058eb11',
-			connectionLimit: 10
+			connectionLimit: 10			
 		});
 	}
 

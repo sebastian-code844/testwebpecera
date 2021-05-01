@@ -7,7 +7,11 @@ class IndexRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', (req, res) => res.render("partials/principal"));
+        this.router.get('/', (req, res) => {
+            req.session.auth = false; // Paso 4 - inicio sesion
+            req.session.user = {}; // Paso 4 - inicio sesion
+            res.render("partials/principal");
+        });
     }
 }
 //Exportamos el enrutador con 

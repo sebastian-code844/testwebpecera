@@ -33,14 +33,23 @@ class UserRoutes{
         this.router.get('/list',userController.list);
         this.router.get('/find/:id',userController.find);
         this.router.post('/add',userController.addUser);
-        this.router.put('/update/:id',userController.update);
+        this.router.put('/update/:id',userController.update);// envio datos
+
+         /*
+        this.router.get('/update/:id',userController.update); // tarea dibujo vista
+        this.router.post('/update/:id',userController.update); // tarea update x saveChanges ejecuta update bd
+        */
+
         this.router.delete('/delete/:id',userController.delete);
+        
+        this.router.get('/delete/:id',userController.delete); // Paso 19 ruta para delete de control.hbs
         // FIN CRUD
 
         this.router.get('/control',userController.control);
         this.router.post('/procesar',userController.procesar);
 
-        
+        this.router.get('/salir',userController.endSession); // Paso 8
+        this.router.get('/error',userController.showError); // Paso 14  
 	}
 }
 

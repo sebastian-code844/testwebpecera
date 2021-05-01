@@ -33,11 +33,18 @@ class UserRoutes {
         this.router.get('/list', userController_1.default.list);
         this.router.get('/find/:id', userController_1.default.find);
         this.router.post('/add', userController_1.default.addUser);
-        this.router.put('/update/:id', userController_1.default.update);
+        this.router.put('/update/:id', userController_1.default.update); // envio datos
+        /*
+       this.router.get('/update/:id',userController.update); // tarea dibujo vista
+       this.router.post('/update/:id',userController.update); // tarea update x saveChanges ejecuta update bd
+       */
         this.router.delete('/delete/:id', userController_1.default.delete);
+        this.router.get('/delete/:id', userController_1.default.delete); // Paso 19 ruta para delete de control.hbs
         // FIN CRUD
         this.router.get('/control', userController_1.default.control);
         this.router.post('/procesar', userController_1.default.procesar);
+        this.router.get('/salir', userController_1.default.endSession); // Paso 8
+        this.router.get('/error', userController_1.default.showError); // Paso 14  
     }
 }
 //Exportamos el enrutador con 

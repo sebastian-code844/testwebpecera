@@ -1,11 +1,15 @@
 import { Router, Request, Response } from 'express';
-class IndexRoutes{
+class IndexRoutes {
 	public router: Router = Router();
-	constructor(){
+	constructor() {
 		this.config();
 	}
-	config():void{
-		this.router.get('/',(req:Request,res:Response)=> res.render("partials/principal"));
+	config(): void {
+		this.router.get('/', (req: Request, res: Response) => {
+			req.session.auth = false; // Paso 4 - inicio sesion
+			req.session.user = {}; // Paso 4 - inicio sesion
+			res.render("partials/principal");
+		});
 	}
 }
 
