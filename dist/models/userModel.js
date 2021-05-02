@@ -18,9 +18,9 @@ class UserModel {
         return __awaiter(this, void 0, void 0, function* () {
             this.db = yield promise_1.createPool({
                 host: 'us-cdbr-east-03.cleardb.com',
-                user: 'b0e0fd43ed8818',
-                password: '2b1f9d39',
-                database: 'heroku_4505cc56058eb11',
+                user: 'b18d8d73ca2b40',
+                password: '4d634803',
+                database: 'heroku_bcf9b8acba4cdc4',
                 connectionLimit: 10
             });
         });
